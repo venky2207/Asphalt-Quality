@@ -46,19 +46,19 @@ def app(df, X, y):
     # Create a button to predict
     if st.button("Predict"):
         # Get prediction and model score
-        prediction, score = predict(X, y, features)
+        # prediction, score = predict(X, y, features)
         st.info("Asphalt quality detected...")
 
         # Print the output according to the prediction
-        if (prediction == 1 or Asphalt_Quantity < 50):
+        if (Asphalt_Quantity < 50):
             st.error("Poor! Bad Asphalt Mix 😫")
-        elif (prediction == 2 or Asphalt_Quantity < 100 and Asphalt_Quantity > 51):
+        elif (Asphalt_Quantity < 100 and Asphalt_Quantity > 51):
             st.warning("Average Asphalt Mix")
-        elif (prediction == 3 or Asphalt_Quantity < 200 and Asphalt_Quantity > 110):
+        elif (Asphalt_Quantity < 200 and Asphalt_Quantity > 110):
             st.success("Good Asphalt Mix")
-        elif (prediction == 4):
+        elif (Water_Cement_Ratio < 10):
             st.success("Fine Asphalt Mix")
-        elif (prediction == 5):
+        elif (Sand_Ratio < 20):
             st.success("Excellent Asphalt Mix!! 😎")
 
         
